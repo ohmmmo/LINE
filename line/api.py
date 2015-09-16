@@ -62,7 +62,7 @@ class LineAPI(object):
 		"""
         #raise Exception("Code is removed because of the request of LINE corporation")
 		self.transport    = THttpClient.THttpClient(self.LINE_HTTP_URL)
-        self.transport_in = THttpClient.THttpClient(self.LINE_HTTP_IN_URL)
+		self.transport_in = THttpClient.THttpClient(self.LINE_HTTP_IN_URL)
         
 		self.transport.setCustomHeaders(self._headers)
 		self.transport_in.setCustomHeaders(self._headers)
