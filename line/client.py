@@ -86,7 +86,7 @@ class LineClient(LineAPI):
             self.is_mac = is_mac
 
             self.login()
-            self.ready()
+            #self.ready()
 
         self.revision = self._getLastOpRevision()
         self.getProfile()
