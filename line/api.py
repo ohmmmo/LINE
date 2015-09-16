@@ -55,7 +55,7 @@ class LineAPI(object):
         object.__init__(self)
         self._session = requests.session()
 
-	def ready(self):
+    def ready(self):
 		"""
 		After login, make `client` and `client_in` instance
 		to communicate with LINE server
