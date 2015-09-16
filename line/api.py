@@ -60,8 +60,22 @@ class LineAPI(object):
         After login, make `client` and `client_in` instance
         to communicate with LINE server
         """
-        raise Exception("Code is removed because of the request of LINE corporation")
-
+        #raise Exception("Code is removed because of the request of LINE corporation")
+        self.transport    = THttpClient.THttpClient(self.LINE_HTTP_URL)
+        self.transport_in = THttpClient.THttpClient(self.LINE_HTTP_IN_URL)
++		self.transport.setCustomHeaders(self._headers)
+		self.transport_in.setCustomHeaders(self._headers)
++
+		self.protocol    = TCompactProtocol.TCompactProtocol(self.transport)
+		self.protocol_in = TCompactProtocol.TCompactProtocol(self.transport_in)
++
+		self._client    = CurveThrift.Client(self.protocol)
+		self._client_in = CurveThrift.Client(self.protocol_in)
++
+		self.transport.open()
+		self.transport_in.open()
+        
+        
     def updateAuthToken(self):
         """
         After login, update authToken to avoid expiration of
